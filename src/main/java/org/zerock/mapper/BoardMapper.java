@@ -25,4 +25,5 @@ public interface BoardMapper {
 	
 	public int getTotalCount(Criteria cri);
 	
+	
 }

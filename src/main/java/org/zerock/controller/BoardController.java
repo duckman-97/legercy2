@@ -47,7 +47,7 @@ public class BoardController {
 		
 		model.addAttribute("pageMaker",new PageDTO(cri,total));
 		
-		
+		                                                                         
 	}
 	
 	
@@ -93,13 +93,9 @@ public class BoardController {
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		return "redirect:/board/list" + cri.getListLink();
 		
-		
-		rttr.addAttribute("pageNum",cri.getPageNum());
-		rttr.addAttribute("amount",cri.getAmount());
-		
-		
-		return "redirect:/board/list";
+	
 	}
 	
 	
@@ -113,12 +109,10 @@ public class BoardController {
 		if (service.remove(bno)) {
 			rttr.addFlashAttribute("reault", "success");
 		}
-		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount",cri.getAmount());
+	
 		
 		
-		return "redirect:/board/list";
+		return "redirect:/board/list"+ cri.getListLink();
 	}
 	
 }
